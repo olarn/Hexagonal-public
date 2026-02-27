@@ -30,11 +30,15 @@ Within each module (where applicable):
 ## Prerequisites
 
 - Node.js
-- TypeScript
+- TypeScript 5.2.2 or higher
 - Jest
 - (Optional) Visual Studio Code
 
 ## Setup and commands
+
+```
+cd code
+```
 
 Install dependencies:
 

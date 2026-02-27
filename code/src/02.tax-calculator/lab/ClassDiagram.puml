@@ -1,0 +1,48 @@
+@startuml TaxCalculator Class Diagram
+
+!define LIGHTBLUE #E3F2FD
+!define LIGHTGREEN #E8F5E9
+!define LIGHTYELLOW #FFF9C4
+
+skinparam class {
+    BackgroundColor LIGHTBLUE
+    BorderColor #1976D2
+    ArrowColor #1976D2
+}
+
+class TaxCalculator {
+    + calculateTax(salary: number): number
+}
+
+class TaxRateRepository {
+    + getTaxRateFrom(salary: number): number
+}
+
+class TaxCalculatorTest <<test>> {
+    + should calculate the tax correctly()
+}
+
+TaxCalculator ..> TaxRateRepository : <<uses>>
+TaxCalculatorTest ..> TaxCalculator : <<tests>>
+
+note right of TaxCalculator
+  Calculates tax based on salary
+  by using TaxRateRepository
+  to get the appropriate tax rate
+end note
+
+note right of TaxRateRepository
+  Returns tax rate based on salary:
+  - salary < 10,001: 10%
+  - salary < 20,001: 20%
+  - salary >= 20,001: 30%
+end note
+
+note left of TaxCalculatorTest
+  Test case:
+  - Input: salary = 10,000
+  - Expected tax: 1,000
+  - Tax rate: 10%
+end note
+
+@enduml

@@ -32,7 +32,26 @@ Within each module (where applicable):
 - Node.js
 - TypeScript 5.2.2 or higher
 - Jest
-- (Optional) Visual Studio Code
+- (Optional) Visual Studio Code — see [Recommended VS Code extensions](#recommended-vs-code-extensions) for testing-related add-ons.
+
+## Recommended VS Code extensions
+
+These extensions work well with this repo’s **Jest** + TypeScript setup. Run npm commands from the `code/` folder (see [Setup and commands](#setup-and-commands)).
+
+| Purpose | Extension | ID |
+|--------|-----------|-----|
+| Run tests, watch from the editor, inline pass/fail | Jest (Orta) | `orta.vscode-jest` |
+| Line coverage in the editor (LCOV) | Coverage Gutters | `ryanluker.vscode-coverage-gutters` |
+| Debug tests | JavaScript Debugger (Microsoft) | `ms-vscode.js-debug` |
+
+**Install from the terminal** (with the `code` CLI on your `PATH`):
+
+```bash
+code --install-extension orta.vscode-jest
+code --install-extension ryanluker.vscode-coverage-gutters
+```
+
+After `npm test`, Jest writes coverage under `code/coverage/` (including `lcov.info`). In **Coverage Gutters**, set the LCOV path to `coverage/lcov.info` when your workspace folder is `code/`, or `code/coverage/lcov.info` when the workspace is the repo root. For watch mode, use `npm run test:watch` or the Jest extension’s run/watch controls.
 
 ## Setup and commands
 
